@@ -22,18 +22,18 @@ describe Oystercard do
   describe "#top_up" do
     before { oystercard.top_up(maximum) }
     it "Tops up the balance with the amount passed to top_up" do
-  	  expect(oystercard.balance).to eq maximum
+      expect(oystercard.balance).to eq maximum
     end
     it "Refuses balance over maximum balance" do
-  	  expect {oystercard.top_up(minimum)}.to raise_error(
+      expect {oystercard.top_up(minimum)}.to raise_error(
       "ERROR: Balance limit is £ #{maximum}")
     end
   end
 
   describe "#touch_in" do
     it "Refuses touch_in if balance is less than minimum fare" do
-  	  oystercard.top_up(minimum - 1)
-  	  expect {oystercard.touch_in(entry_station)}.to raise_error "ERROR: Insufficient funds"
+      oystercard.top_up(minimum - 1)
+      expect {oystercard.touch_in(entry_station)}.to raise_error "ERROR: Insufficient funds"
     end
 end
 

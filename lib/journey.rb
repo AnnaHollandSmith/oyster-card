@@ -24,4 +24,6 @@ class Journey
   def set_exit_station(exit_station)
       @exit_station = exit_station
   end
+
 end
+
