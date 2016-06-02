@@ -2,7 +2,7 @@ require 'Journey.rb'
 
 class JourneyLog
 
-  attr_reader :current_journey
+  
 
   def initialize(journey_class = Journey)
     @journey_class = journey_class
@@ -33,6 +33,6 @@ class JourneyLog
 
   private
 
-  attr_reader :journey_class
+  attr_reader :journey_class, :current_journey
 
 end

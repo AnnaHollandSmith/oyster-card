@@ -26,8 +26,10 @@ describe JourneyLog do
   describe "#finish" do
 
     it "Creates a new journey if no entry" do
+      expect(journey_class).to receive(:new)
       journey_log.finish(exit_station)
-      expect(journey_log.current_journey).not_to be_nil
+      #expect(journey_log.current_journey).not_to be_nil
+
     end
   end
 
@@ -37,8 +39,6 @@ describe JourneyLog do
       journey_log.start(entry_station)
       journey_log.finish(exit_station)
       expect(journey_log.journeys).to eq [journey]
-    
     end
   end
-
 end
